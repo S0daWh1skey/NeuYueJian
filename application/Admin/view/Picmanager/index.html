@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>欢迎管理员:{$Think.session.login_admin}</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="__STATIC__/admin/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="__STATIC__/admin/assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="__STATIC__/admin/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="__STATIC__/admin/assets/css/admin.css">
+    <script src="__STATIC__/admin/assets/js/jquery.min.js"></script>
+    <script src="__STATIC__/admin/assets/js/app.js"></script>
+</head>
+<body>
+<!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！
+    <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p><![endif]-->
+
+
+
+
+</head>
+
+<body>
+{include file="Picmanager:header" /}
+
+<div class="am-cf admin-main">
+
+    {include file="Picmanager:sidemenu" /}
+
+        <script type="text/javascript">
+            jQuery(".sideMenu").slide({
+                titCell:"h3", //鼠标触发对象
+                targetCell:"ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
+                effect:"slideDown", //targetCell下拉效果
+                delayTime:300 , //效果时间
+                triggerTime:150, //鼠标延迟触发时间（默认150）
+                defaultPlay:true,//默认是否执行效果（默认true）
+                returnDefault:true //鼠标从.sideMen移走后返回默认状态（默认false）
+            });
+        </script>
+
+
+
+
+
+
+
+
+    </div>
+
+    <div class=" admin-content">
+
+        <div class="daohang">
+
+
+        </div>
+
+
+        <div class="am-popup am-popup-inner" id="my-popup">
+
+            <div class="am-popup-hd">
+                <h4 class="am-popup-title">添加商品一级分类</h4>
+                <span data-am-modal-close
+                      class="am-close">&times;</span>
+            </div>
+
+            <div class="am-popup-bd">
+
+
+                <form class="am-form tjlanmu">
+
+
+                    <div class="am-form-group">
+                        <div class="zuo">栏目名称：</div>
+                        <div class="you">
+                            <input type="email" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入标题">
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <div class="zuo">栏目关键词：</div>
+                        <div class="you">
+                            <input type="password" class="am-input-sm" id="doc-ipt-pwd-1" placeholder="请输入关键词">
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">栏目描述：</div>
+                        <div class="you">
+                            <textarea class="" rows="2" id="doc-ta-1"></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">栏目图片：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file" id="doc-ipt-file-1">
+                            <p class="am-form-help">请选择要上传的文件...</p>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">简介：</div>
+                        <div class="you">
+                            <textarea class="" rows="2" id="doc-ta-1"></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">状态：</div>
+                        <div class="you" style="margin-top: 3px;">
+                            <label class="am-checkbox-inline">
+                                <input type="checkbox" value="option1">
+                                显示 </label>
+                            <label class="am-checkbox-inline">
+                                <input type="checkbox" value="option2">
+                                隐藏 </label>
+
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="you">
+                            <p>
+                                <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+<!--修改项目模态框-->
+        <div class="am-popup am-popup-inner" id="my-popups" >
+
+            <div class="am-popup-hd">
+                <h4 class="am-popup-title">修改用户信息</h4>
+                <span data-am-modal-close
+                      class="am-close">&times;</span>
+            </div>
+
+            <div class="am-popup-bd">
+
+
+                <form class="am-form" method="POST" action="{:url('update')}">
+                    <input type="hidden" name="CaID" id="Edt_id">
+                    <div class="am-form-group">
+
+                        <div class="zuo">用户名：</div>
+                        <div class="zuo">
+                            &nbsp;
+                        </div>
+                        <div class="you">
+                            <input type="text" class="am-input-sm" name="CaName" id="Edt_name" placeholder="请输入用户名">
+                        </div>
+                        <div class="zuo">用户邮箱：</div>
+                        <div class="zuo">
+                            &nbsp;
+                        </div>
+                        <div class="you">
+                            <input type="email" class="am-input-sm" name="CaEmail" id="Edt_email" placeholder="请输入邮箱">
+                        </div>
+                        <div class="zuo">员工手机号：</div>
+                        <div class="zuo">
+                            &nbsp;
+                        </div>
+                        <div class="you">
+                            <input type="text" class="am-input-sm" name="CaPhone" id="Edt_phone" placeholder="请输入手机号">
+                        </div>
+                        <div class="zuo">审核状态：</div>
+                        <div class="zuo">
+                            &nbsp;
+                        </div>
+                        <div class="you">
+                            <input type="radio" name="CaCheck" id="Manager0" value="0"/>不通过
+                            <input type="radio" name="CaCheck" id="Manager1" value="1"/>通过
+                        </div>
+
+                    </div>
+                    <div class="am-form-group">
+                        <div class="you">
+                            <p>
+                                <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+
+
+        </div>
+
+
+
+         <!--员工详情模态框-->
+        <div class="am-popup am-popup-inner" id="my-detail" >
+
+            <div class="am-popup-hd">
+                <h4 class="am-popup-title"></h4>
+                <span data-am-modal-close
+                      class="am-close">&times;</span>
+            </div>
+
+            <div class="am-popup-bd">
+                    <input type="hidden" name="stuffId" >
+                    <div class="am-form-group">
+          
+                        <div class="zuo">用户名：<lable id="Detail_Edt_name"></lable></div>
+                        <div class="zuo">员工邮箱：<lable id="Detail_Edt_email"> </lable></div>
+                        <div class="zuo">员工手机号：<lable id="Detail_Phone"></lable></div>
+                        <div class="zuo">最后登陆：<lable id="Detail_zhdl"></lable></div>
+
+                        <!--<div class="zuo">员工邮箱：</div>-->
+                        <!--<div class="you">-->
+                        <!--</div>-->
+                        <!--<div class="zuo">所属部门：</div>-->
+                        <!--<div class="you">-->
+
+                        </div>
+
+                    </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        <div class="admin-biaogelist">
+
+            <div class="listbiaoti am-cf">
+                <ul class="am-icon-users"> 俱乐部管理员管理</ul>
+
+                <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">俱乐部管理员列表</a></dl>
+
+                <dl>
+                </dl>
+                <!--这里打开的是新页面-->
+
+
+
+
+            </div>
+            <form class="am-form am-g">
+                <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+                    <thead>
+                    <tr class="am-success">
+
+                        <th class="table-id">ID</th>
+                        <th class="table-title">图片</th>
+                        <th class="table-type">晒图内容</th>
+                        <th class="table-type">上传时间</th>
+                        <th class="table-type">图片标签</th>
+                        <th class="table-type">上传用户</th>
+                        <th class="table-type">图片评论数</th>
+                        <th width="160px" class="table-set">操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {volist name="plist" id="vo"}
+                    <tr>
+                        <td>{$vo.PicID}</td>
+                        <td><img src="__STATIC__/Sharepic/{$vo.Pic}" style="width:100px"></td>
+                        <td>{$vo.PicContent}</td>
+                        <td>{$vo.PicUploadTime}</td>
+                        <td>{$vo.Pictag}</td>
+                        <td>{$vo.UserName}</td>
+                        <td>{$vo.CommentCount}</td>
+                        <td>
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-success am-round"
+                                            onclick="location.href='{:url('Picmanager/Commentdetail',['pID'=>$vo.PicID])}'"><span class="am-icon-search" title="查看订单详情">查看图片评论</span> </button>
+                                    <li class="am-btn am-btn-default am-btn-xs am-text-danger am-round">
+
+                                        <a href="javascript:if(confirm('确实要删除该内容吗?')){location.href='{:url('delete',['id'=>$vo.PicID])}'}"><i class="am-icon-trash-o"></i></a>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    {/volist}
+
+                    </tbody>
+
+                </table>
+                <div class="am-btn-group am-btn-group-xs">
+                </div>
+
+                <!--<ul class="am-pagination am-fr">-->
+                <!--<li class="am-disabled"><a href="#">«</a></li>-->
+                <!--<li class="am-active"><a href="#">1</a></li>-->
+                <!--<li><a href="#">2</a></li>-->
+                <!--<li><a href="#">3</a></li>-->
+                <!--<li><a href="#">4</a></li>-->
+                <!--<li><a href="#">5</a></li>-->
+                <!--<li><a href="#">»</a></li>-->
+                <!--</ul>-->
+
+
+                {$plist->render()}
+
+                <hr />
+                <p></p>
+
+            </form>
+
+
+
+
+
+
+            {include file="Picmanager:footer" /}
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__STATIC__/admin/assets/js/polyfill/rem.min.js"></script>
+<script src="__STATIC__/admin/assets/js/polyfill/respond.min.js"></script>
+<script src="__STATIC__/admin/assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__STATIC__/admin/assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+
+</body>
+</html>
